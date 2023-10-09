@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
+
 //Угол a задан в радианах. Найти его величину в градусах, минутах и секундах.
 
 double fun_scan();

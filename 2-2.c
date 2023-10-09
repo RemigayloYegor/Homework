@@ -14,6 +14,7 @@ int main()
     return 0;
 }
 
+
 float func(float x){
     float a = 1.1f;
     if (x == 1.2f){

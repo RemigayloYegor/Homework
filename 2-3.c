@@ -2,6 +2,7 @@
 #include <math.h>
 
 float fun_scan();
+
 float fun_var(int var,float R);
 
 int main(){

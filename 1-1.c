@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include<math.h>
 
-
 int main() {
 double x, y, z, e, a, b;
 x = 0.29;
