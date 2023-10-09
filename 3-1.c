@@ -11,7 +11,7 @@ int main(void) {
   x_min = fun_scan();
   x_max = fun_scan();
   d_x = fun_scan();
-  while(x_min < x_max){
+  while(x_min <= x_max){
     fun_prim(x_min);
     x_min = x_min + d_x;
   }
@@ -26,6 +26,7 @@ float fun_prim(float x_min){
   } else{
     printf("%f\n", prim);
   }
+  return 0;
 }
 
 float fun_scan(){
