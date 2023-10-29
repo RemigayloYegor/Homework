@@ -1,40 +1,66 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-// Number 1 
-
+/**
+ * @brief функция написана, чтобы пользователи вводили значение и проверять его
+ * на то, что он является числом
+ * @return введеное значения пользователя
+ */
 float fun_scan();
-float fun_prim(float x_min);
 
-int main(void) {
-  float prim, d_x, x_min, x_max;
-  x_min = fun_scan();
+/**
+ * @brief Считает уравнение с проверкой истиности fun_check и выводит итоговое значение уравнения или выводит Решение отсутствует и текущее значение х 
+ * @param x - значение числа в диапазоне
+ * @return ничего
+ */
+float fun_example(float x);
+
+/**
+ * @brief Проверяет существующие значения х в данном уравнение
+ * @param x - значение числа в диапазоне
+ * @return Если не существует значение х возращает false, иначе true
+ */
+bool fun_check(float x);
+
+int main() {
+  float d_x, x, x_max;
+  x = fun_scan();
   x_max = fun_scan();
   d_x = fun_scan();
-  while(x_min <= x_max){
-    fun_prim(x_min);
-    x_min = x_min + d_x;
+  while (x <= x_max) {
+    fun_example(x);
+    x = x + d_x;
   }
   return 0;
 }
 
-float fun_prim(float x_min){
-  float prim;
-  prim = 3 * sin(sqrtf(x_min)) + 0.39 * x_min - 3.8;
-  if(prim != prim){
-    printf("%0.0f %s\n",x_min, "Решение отстутствует");
-  } else{
-    printf("%f\n", prim);
+float fun_example(float x) {
+  float example;
+  if (fun_check(x) == true) {
+    example = 3 * sin(sqrtf(x)) + 0.39 * x - 3.8;
+    printf("%f\n", example);
+  } else {
+    printf("%f %s\n", x, "Решение отстутствует");
   }
   return 0;
 }
 
-float fun_scan(){
+float fun_scan() {
   int a;
   float ret;
   a = scanf("%f", &ret);
-  if (a != 1){
-    printf("%s", "Error");
+  if (a != 1) {
+    abort();
   }
   return ret;
+}
+
+bool fun_check(float x) {
+  if (x < 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
