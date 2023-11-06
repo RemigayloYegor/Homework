@@ -1,38 +1,51 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+/**
+ * @brief функция написана, чтобы пользователи вводили значение и проверять его
+ * на то, что он является числом
+ * @param  нет
+ * @return введеное значения пользователя
+ */
 float fun_scan();
-float fun_var(int var,float R);
 
-int main(){
-    float kol;
-    int varib;
-    printf("%s\n", "Если хотите перевести из радианов в градусы введите 1, если из градусов в радины то 2.");
-    varib = fun_scan();
-    printf("%s\n", "Введите колличество");
-    kol = fun_scan();
-    fun_var(varib, kol);
+/**
+ * @brief Функция выбирает вариант перевести угол из радианов в градусы или из
+ * градусов в радины
+ * @param  corner - угол, varible - вариант перевода
+ * @return угол в градусах или радианах
+ */
+float fun_variable(int variable, float corner);
 
+int main() {
+  float number;
+  int variable;
+  printf("%s\n", "Если хотите перевести из радианов в градусы введите 1, если "
+                 "из градусов в радины то 2.");
+  variable = fun_scan();
+  printf("%s\n", "Введите колличество");
+  number = fun_scan();
+  fun_variable(variable, number);
 }
 
-float fun_var(int var,float R){
-    if (var == 1){
-        return printf("%f", R * 180 / M_PI);
-    } else if (var == 2){
-        return printf("%f", R * M_PI / 180);
-    } else {
-        return printf("%s", "Error");
-    }
+float fun_variable(int variable, float corner) {
+  if (variable == 1) {
+    return printf("%f", corner * 180 / M_PI);
+  } else if (variable == 2) {
+    return printf("%f", corner * M_PI / 180);
+  } else {
+    abort();
+  }
 }
 
-float fun_scan(){
-    float R;
-    int a;
-    a = scanf("%f", &R);
-    if (a != 1){
-        return printf("%s", "Error");
-        
-    } else {
-        return R;
-    }
+float fun_scan() {
+  float corner;
+  int a;
+  a = scanf("%f", &corner);
+  if (a != 1) {
+    abort();
+  } else {
+    return corner;
+  }
 }
