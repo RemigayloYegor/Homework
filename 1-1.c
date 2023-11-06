@@ -1,15 +1,33 @@
+#include <math.h>
 #include <stdio.h>
-#include<math.h>
-
+#include <stdlib.h>
+/**
+ * @brief Функция расчета формулы
+ * @param x,y,z значения параметров
+ * @return значение вычеслений
+ */
+double FunctionA(double x, double y, double z);
+/**
+ * @brief Функция расчета формулы
+ * @param x,y,z значения параметров
+ * @return значение вычеслений
+ */
+double FunctionB(double x, double y, double z);
 
 int main() {
-double x, y, z, e, a, b;
-x = 0.29;
-y = 3.7;
-z = -1;
-e = 2.7;
-a = 3 * pow(x, y) * log10(y) +  exp(z * x);
-b = fabs(2 * y * z) / pow(sin(x),2) - pow(x,2) / 3;
-printf("x = %4.2f\n y = %4.2f\n z = %4.2f\n", x, y, z);
-printf("a = %f\n b = %f\n", a, b);
+  double const x = 0.29, y = 3.7, z = -1;
+  printf("x = %4.2f\n y = %4.2f\n z = %4.2f\n", x, y, z);
+  printf("a = %f\n b = %f\n", FunctionA(x, y, z), FunctionB(x, y, z));
+}
+
+double FunctionA(double x, double y, double z) {
+  double a;
+  a = 3 * pow(x, y) * log10(y) + exp(z * x);
+  return a;
+}
+
+double FunctionB(double x, double y, double z) {
+  double b;
+  b = fabs(2 * y * z) / pow(sin(x), 2) - pow(x, 2) / 3;
+  return b;
 }
